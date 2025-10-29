@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# E-Commerce Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and responsive ReactJS-based e-commerce web app built using class components.  
+This app allows users to browse products, view detailed information, and add items to their cart — with cart persistence across refreshes. It allows users to browse, filter, sort, and view products.
 
-## Available Scripts
+---
+## Features
 
-In the project directory, you can run:
+### Home Page (Product Listing)
+- Displays all products in a responsive grid layout.
+- Users can filter products by category(multiple selection supported).
+- Sorting feature — Low to High or High to Low price.
+- Filters and sorting persist in the URL, allowing users to share links.
+- Dynamic category data fetched from API ("https://fakestoreapi.com/products").
 
-### `npm start`
+### Product Detail Page
+- Uses dynamic routing (`/product/:id/details`).
+- Fetches product information dynamically from the API.
+- Displays product image, title, description, and price.
+- Includes “Add to Cart” functionality using React Context API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Cart Functionality
+- Items can be added to the cart from the product detail page.
+- Displays total cart value and number of items in a sticky Cart Footer.
+- Cart items persist across refreshes using localStorage.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Navigation
+- Simple navigation between Home and Product Details.
+- Back to Home link provided on each detail page.
 
-### `npm test`
+### Technical Stack
+- ReactJS (Class Components)
+- React Router DOM (v6) for navigation
+- Context API for cart state management
+- Fetch API for data fetching
+- LocalStorage for persistence
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup Instructions
 
-### `npm run build`
+Follow the steps below to set up and run the application locally.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clone the Repository
+git clone https://github.com/harleenk11/ecommerce-webapp.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Navigate to the Project Folder
+cd ecommerce
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Install Dependencies
+npm install
 
-### `npm run eject`
+### 4. Start the Development Server
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 5. Open in Browser
+http://localhost:3000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Assumptions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- The product API (`https://fakestoreapi.com/products`) is always available and returns valid JSON.
+- The app focuses on product listing and detail pages —  separate cart page has been created.
+  
+## Limitations
 
-## Learn More
+- API filtering is performed client-side (locally) rather than through a dedicated backend query.
+- No authentication or user login implemented.
+- Cart items are not synced across multiple browser sessions (only local persistence).
+- Limited mobile responsiveness (optimized for basic viewports).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🧩 Folder Structure
 
-### Code Splitting
+ecommerce/
+│
+├── src/
+│   ├── components/
+│   │   └── CartFooter.js
+│   ├── context/
+│   │   └── CartContext.js
+│   ├── pages/
+│   │   ├── Home.js
+│   │   └── ProductDetail.js
+|   |   └── Cart.js
+│   ├── App.js
+│   ├── index.js
+│   └── withRouter.js
+│
+├── package.json
+├── README.md
+└── ...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Add a dedicated Cart page with remove quantity features.
+- API-based filtering instead of local filtering.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Developer Notes
 
-### Advanced Configuration
+This project was created as part of a frontend developer assignment.  
+AI tools were used only for syntax lookups and debugging, with all logical and structural work done manually.  
+The app follows all the technical requirements mentioned in the problem statement.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
