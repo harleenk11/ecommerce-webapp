@@ -1,29 +1,31 @@
 import React, { Component } from "react";
-import { observer } from "mobx-react";
 import CartContext from "../context/CartContext";
 
 class CartFooter extends Component {
   static contextType = CartContext;
 
   render() {
-    const { cart } = this.context;
+    const { cartItems = [], total = 0 } = this.context || {};
+    const count = cartItems.length || 0;
 
     return (
-      <div style={{
-        background: "#f8f8f8",
-        padding: "12px",
-        textAlign: "center",
-        borderTop: "1px solid #ccc",
-        position: "fixed",
-        bottom: 0,
-        width: "100%"
-      }}>
-        <p style={{ margin: 0, fontSize: "14px" }}>
-        {cart.totalItems} item(s) | Total: ₹{cart.totalPrice}
-        </p>
-      </div>
+      <footer
+        style={{
+          position: "fixed",
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: "#FFC107",
+          borderTop: "1px solid #eee",
+          padding: "10px 16px",
+          textAlign: "center",
+          fontSize: 14,
+        }}
+      >
+        {count > 0 ? `${count} item(s) | Total: ₹${total.toFixed(2)}` : "Cart is empty"}
+      </footer>
     );
   }
 }
 
-export default observer(CartFooter);
+export default CartFooter;
